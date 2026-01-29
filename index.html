@@ -1,96 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Seguimiento Ambiental – Rico Mora S.A.S.</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Seguimiento Ambiental – Rico Mora S.A.S.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body{
-      font-family: Arial, Helvetica, sans-serif;
-      margin:0;
-      background:#f4f6f8;
-      color:#333;
-    }
-    header{
-      background:#0b5d3b;
-      color:#fff;
-      padding:30px 20px;
-    }
-    header h1{
-      margin:0;
-      font-size:28px;
-    }
-    header p{
-      margin:5px 0 0;
-      font-size:16px;
-      opacity:.9;
-    }
-    main{
-      max-width:1200px;
-      margin:auto;
-      padding:25px;
-    }
-    .resumen{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:20px;
-      margin-bottom:40px;
-    }
-    .card{
-      background:#fff;
-      border-radius:8px;
-      padding:20px;
-      box-shadow:0 3px 8px rgba(0,0,0,.1);
-    }
-    .card h3{
-      margin-top:0;
-      color:#0b5d3b;
-    }
-    .ok{color:#2a9d8f;font-weight:bold}
-    .parcial{color:#f4a261;font-weight:bold}
-    .no{color:#e63946;font-weight:bold}
+<style>
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f4f6f8;
+  color:#333;
+}
+header{
+  background:#0b5d3b;
+  color:#fff;
+  padding:25px;
+}
+header h1{margin:0}
+.layout{
+  display:flex;
+  min-height:100vh;
+}
+aside{
+  width:300px;
+  background:#1f2933;
+  color:#fff;
+  padding:20px;
+}
+aside h2{
+  font-size:18px;
+  margin-top:0;
+}
+.menu-item{
+  background:#374151;
+  padding:12px;
+  margin-bottom:10px;
+  border-radius:6px;
+  cursor:pointer;
+}
+.menu-item:hover{background:#4b5563}
+.menu-item.active{background:#0b5d3b}
+main{
+  flex:1;
+  padding:25px;
+}
+.seccion{display:none}
+.seccion.active{display:block}
 
-    h2{
-      color:#0b5d3b;
-      margin-top:0;
-    }
+.card{
+  background:#fff;
+  border-radius:8px;
+  padding:15px;
+  margin-bottom:15px;
+  box-shadow:0 2px 6px rgba(0,0,0,.1);
+}
+.ok{color:#2a9d8f;font-weight:bold}
+.parcial{color:#f4a261;font-weight:bold}
+.no{color:#e63946;font-weight:bold}
 
-    .evento{
-      background:#fff;
-      border-left:6px solid #0b5d3b;
-      margin-bottom:25px;
-      padding:20px;
-      border-radius:6px;
-      box-shadow:0 2px 6px rgba(0,0,0,.08);
-    }
-    .evento h3{
-      margin-top:0;
-    }
+.requerimiento{
+  border-left:6px solid #ccc;
+  padding:12px;
+  margin-bottom:12px;
+  background:#fff;
+  border-radius:6px;
+}
+.requerimiento.parcial{border-color:#f4a261}
+.requerimiento.no{border-color:#e63946}
 
-    table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:10px;
-    }
-    th, td{
-      border:1px solid #ccc;
-      padding:8px;
-      font-size:14px;
-      text-align:center;
-    }
-    th{
-      background:#eee;
-    }
-
-    footer{
-      background:#ddd;
-      text-align:center;
-      padding:15px;
-      font-size:14px;
-      margin-top:40px;
-    }
-  </style>
+footer{
+  background:#ddd;
+  text-align:center;
+  padding:15px;
+}
+</style>
 </head>
 
 <body>
@@ -100,79 +84,126 @@
   <p>Corantioquia – Compañía Rico Mora S.A.S.</p>
 </header>
 
+<div class="layout">
+
+<aside>
+  <h2>Actos Administrativos</h2>
+
+  <div class="menu-item active" onclick="mostrar('acto11629')">
+    Acto Adm. 040-ADM2212-11629
+  </div>
+
+  <div class="menu-item" onclick="mostrar('acto10806')">
+    Acto Adm. 040-ADM2311-10806
+  </div>
+
+  <div class="menu-item" onclick="mostrar('acto12962')">
+    Acto Adm. 040-ADM2512-12962
+  </div>
+</aside>
+
 <main>
 
-<section class="resumen">
+<!-- ACTO 11629 -->
+<section id="acto11629" class="seccion active">
+  <h2>Acto Adm. 040-ADM2212-11629 (27/12/2022)</h2>
+
   <div class="card">
-    <h3>Actos administrativos</h3>
-    <p><strong>3 actos</strong> (2022 – 2025)</p>
+    <p><strong>Requerimientos:</strong> 70</p>
+    <p><strong>Respuesta:</strong> 10/04/2023 – COE 160ZF-COE2304-14187</p>
   </div>
+
   <div class="card">
-    <h3>Requerimientos totales</h3>
-    <p><strong>95 requerimientos</strong></p>
-  </div>
-  <div class="card">
-    <h3>Estado general</h3>
-    <p>
-      <span class="ok">Cumplidos:</span> varios<br>
-      <span class="parcial">Parciales:</span> mayoría<br>
-      <span class="no">Pendientes:</span> críticos
-    </p>
+    <ul>
+      <li><span class="ok">Cumplió:</span> STARD, ICA</li>
+      <li><span class="parcial">Parcial:</span> PUEAA, emisiones, residuos, aguas residuales</li>
+      <li><span class="no">No cumplió:</span> aprovechamiento forestal, fajas de protección, RESPEL, obras hidráulicas</li>
+    </ul>
   </div>
 </section>
 
-<section>
-  <h2>Línea de tiempo y seguimiento</h2>
+<!-- ACTO 10806 -->
+<section id="acto10806" class="seccion">
+  <h2>Acto Adm. 040-ADM2311-10806 (17/11/2023)</h2>
+  <p><strong>Respuesta:</strong> Comunicación 040-COE2403-11349 – 20/03/2024</p>
 
-  <div class="evento">
-    <h3>Acto Adm. 040-ADM2212-11629</h3>
-    <p><strong>Fecha:</strong> 27 diciembre 2022 (firmeza 10/01/2023)</p>
-    <p><strong>Requerimientos:</strong> 70</p>
-    <p><strong>Respuesta:</strong> 10 abril 2023 – COE 160ZF-COE2304-14187</p>
-    <p><strong>Resultado – Informe Técnico 040-IT2512-12534:</strong></p>
-    <ul>
-      <li><span class="ok">Cumplió:</span> estado del STARD, ICA</li>
-      <li><span class="parcial">Parcial:</span> PUEAA, aguas residuales, emisiones, residuos</li>
-      <li><span class="no">No cumplió:</span> aprovechamiento forestal, fajas de protección, residuos peligrosos, obras hidráulicas</li>
-    </ul>
+  <div class="requerimiento parcial">
+    <strong>1.</strong> Gestión de residuos peligrosos (2022–2023)<br>
+    <span class="parcial">Respondido parcialmente</span>
   </div>
 
-  <div class="evento">
-    <h3>Acto Adm. 040-ADM2311-10806</h3>
-    <p><strong>Fecha:</strong> 17 noviembre 2023</p>
-    <p><strong>Requerimientos:</strong> 15</p>
-    <p><strong>Respuesta:</strong> 20 marzo 2024 – COE 040-COE2403-11349</p>
-    <table>
-      <tr>
-        <th>Total</th>
-        <th>Respondidos</th>
-        <th>Pendientes</th>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td class="parcial">10</td>
-        <td class="no">5</td>
-      </tr>
-    </table>
+  <div class="requerimiento parcial">
+    <strong>2.</strong> Mejoras en acopio temporal de RESPEL<br>
+    <span class="parcial">Respondido parcialmente</span>
   </div>
 
-  <div class="evento">
-    <h3>Acto Adm. 040-ADM2512-12962</h3>
-    <p><strong>Fecha:</strong> 31 diciembre 2025</p>
+  <div class="requerimiento no">
+    <strong>3.</strong> Informe PUEAA 2023<br>
+    <span class="no">Pendiente</span>
+  </div>
+
+  <div class="requerimiento parcial">
+    <strong>4.</strong> Adecuación e instalación del STARD<br>
+    <span class="parcial">Respondido parcialmente</span>
+  </div>
+
+  <div class="requerimiento no">
+    <strong>5.</strong> Sistemas de captación y control de aguas concesionadas<br>
+    <span class="no">Pendiente</span>
+  </div>
+
+  <div class="requerimiento parcial">
+    <strong>6.</strong> Recuperación y protección de la quebrada Santa Inés<br>
+    <span class="parcial">Respondido parcialmente</span>
+  </div>
+
+  <div class="requerimiento no">
+    <strong>7.</strong> Vida útil centro de acopio de descapote<br>
+    <span class="no">Pendiente</span>
+  </div>
+
+  <div class="requerimiento parcial">
+    <strong>8–13.</strong> Obligaciones de aprovechamiento forestal<br>
+    <span class="parcial">Respondido parcialmente</span>
+  </div>
+
+  <div class="requerimiento no">
+    <strong>14.</strong> Información de obras hidráulicas<br>
+    <span class="no">Pendiente</span>
+  </div>
+
+  <div class="requerimiento no">
+    <strong>15.</strong> Modificación permiso ocupación de cauce<br>
+    <span class="no">Pendiente</span>
+  </div>
+</section>
+
+<!-- ACTO 12962 -->
+<section id="acto12962" class="seccion">
+  <h2>Acto Adm. 040-ADM2512-12962 (31/12/2025)</h2>
+  <div class="card">
     <p><strong>Requerimientos:</strong> 10</p>
-    <p><span class="no">Estado:</span> En seguimiento – sin respuesta consolidada</p>
+    <p><span class="no">Estado:</span> Sin respuesta a la fecha</p>
+    <p>📌 Pendiente cargar listado detallado de requerimientos.</p>
   </div>
-
 </section>
 
 </main>
+</div>
 
 <footer>
-  <p>
-    Información elaborada con base en actos administrativos, respuestas COE
-    y el Informe Técnico 040-IT2512-12534.
-  </p>
+  Información construida con actos administrativos, comunicaciones COE y seguimiento técnico.
 </footer>
+
+<script>
+function mostrar(id){
+  document.querySelectorAll('.seccion').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+
+  document.querySelectorAll('.menu-item').forEach(m=>m.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
 
 </body>
 </html>
