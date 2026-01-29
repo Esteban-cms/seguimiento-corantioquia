@@ -23,6 +23,7 @@ main{flex:1;padding:30px}
 .no{color:#e63946;font-weight:bold}
 .pending{color:#f4a261;font-weight:bold}
 footer{text-align:center;padding:12px;background:#ddd}
+small{color:#555}
 </style>
 </head>
 
@@ -95,63 +96,65 @@ function mostrar(id,el){
   document.getElementById(id).style.display='block';
   document.querySelectorAll('.menu div').forEach(m=>m.classList.remove('active'));
   el.classList.add('active');
-  document.getElementById('detalle').innerHTML='<h3>Seleccione un requerimiento</h3>';
+  document.getElementById('detalle').innerHTML =
+    '<h3>Seleccione un requerimiento</h3><p>El texto completo aparecerá aquí.</p>';
 }
 
 const data = {
-10806_1:`<h3>Req. 1</h3><p>Aclarar mediante los soportes respectivos que certifiquen la debida gestión de los residuos peligrosos, la disposición y/o manejo que se dio a la totalidad de los RESPEL generados entre el año 2022 y el primer periodo del año 2023, indicando las razones por las cuales no se realizó gestión dentro del término máximo de 12 meses conforme a la normativa ambiental vigente.</p><p class="ok">Estado: Respondido</p>`,
+  "10806_1": `<small><strong>Acto 040-ADM2311-10806</strong></small><h3>Requerimiento 1</h3><p>Aclarar mediante los soportes respectivos que certifiquen la debida gestión de los residuos peligrosos, la disposición y/o manejo que se dio a la totalidad de los RESPEL generados entre el año 2022 y el primer periodo del año 2023, indicando las razones por las cuales no se realizó gestión dentro del término máximo de 12 meses conforme a la normativa ambiental vigente.</p><p class="ok">Estado: Respondido</p>`,
 
-10806_2:`<h3>Req. 2</h3><p>Adoptar medidas de mejora para el debido acopio temporal de los residuos peligrosos generados en el proyecto, garantizando las condiciones del PMIRS y la Guía Ambiental de Almacenamiento y Transporte de Sustancias Químicas Peligrosas y Residuos Peligrosos.</p><p class="ok">Estado: Respondido</p>`,
+  "10806_2": `<small><strong>Acto 040-ADM2311-10806</strong></small><h3>Requerimiento 2</h3><p>Adoptar medidas de mejora que cumplan con las condiciones óptimas para el debido acopio temporal de los residuos peligrosos generados en el proyecto, garantizando las condiciones del PMIRS y la Guía Ambiental de Almacenamiento y Transporte de Sustancias Químicas Peligrosas y Residuos Peligrosos.</p><p class="ok">Estado: Respondido</p>`,
 
-10806_3:`<h3>Req. 3</h3><p>Presentar informe anual de los avances del Programa de Uso Eficiente y Ahorro del Agua – PUEAA para el año 2023.</p><p class="no">Estado: No respondido</p>`,
+  "10806_3": `<small><strong>Acto 040-ADM2311-10806</strong></small><h3>Requerimiento 3</h3><p>Presentar informe anual de los avances relacionados con el Programa de Uso Eficiente y Ahorro del Agua – PUEAA para el año 2023.</p><p class="no">Estado: No respondido</p>`,
 
-10806_4:`<h3>Req. 4</h3><p>Realizar la adecuación e instalación del STARD aprobado para el manejo de las ARD, garantizando la descarga sobre la quebrada Santa Inés conforme a la Resolución 631 de 2015.</p><p class="ok">Estado: Respondido</p>`,
+  "10806_4": `<small><strong>Acto 040-ADM2311-10806</strong></small><h3>Requerimiento 4</h3><p>Realizar la adecuación e instalación del STARD aprobado para el manejo de las ARD del proyecto y garantizar la descarga sobre la quebrada Santa Inés conforme a la Resolución 631 de 2015.</p><p class="ok">Estado: Respondido</p>`,
 
-10806_5:`<h3>Req. 5</h3><p>Instalar las unidades de captación, conducción y control de las aguas concesionadas para fines doméstico e industrial derivadas de la quebrada Santa Inés.</p><p class="no">Estado: No respondido</p>`,
+  "10806_5": `<small><strong>Acto 040-ADM2311-10806</strong></small><h3>Requerimiento 5</h3><p>Realizar la instalación de las unidades de captación, conducción y control de las aguas concesionadas para fines doméstico e industrial derivadas de la quebrada Santa Inés.</p><p class="no">Estado: No respondido</p>`,
 
-10806_6:`<h3>Req. 6</h3><p>Fortalecer el programa de recuperación y protección de los retiros reglamentarios de la quebrada Santa Inés mediante revegetalización y cerramiento.</p><p class="ok">Estado: Respondido</p>`,
+  "10806_6": `<small><strong>Acto 040-ADM2311-10806</strong></small><h3>Requerimiento 6</h3><p>Fortalecer el programa de recuperación y protección de los retiros reglamentarios de la fuente hídrica quebrada Santa Inés mediante revegetalización y cerramiento.</p><p class="ok">Estado: Respondido</p>`,
 
-10806_7:`<h3>Req. 7</h3><p>Aclarar información sobre la vida útil del centro de acopio de material de descapote y las medidas de recuperación del terreno.</p><p class="no">Estado: No respondido</p>`,
+  "10806_7": `<small><strong>Acto 040-ADM2311-10806</strong></small><h3>Requerimiento 7</h3><p>Aclarar información sobre la vida útil del centro de acopio de material de descapote activo y las medidas de revegetalización y recuperación del terreno.</p><p class="no">Estado: No respondido</p>`,
 
-10806_8:`<h3>Req. 8</h3><p>Cumplir las medidas técnicas del Plan de Aprovechamiento Forestal aprobado.</p><p class="ok">Estado: Respondido</p>`,
+  "10806_8": `<small><strong>Acto 040-ADM2311-10806</strong></small><h3>Requerimiento 8</h3><p>Dar cumplimiento a las medidas técnicas del Plan de Aprovechamiento Forestal presentado.</p><p class="ok">Estado: Respondido</p>`,
 
-10806_9:`<h3>Req. 9</h3><p>Reportar el volumen aprovechado en los ICA para la liquidación de la tasa compensatoria forestal conforme al Decreto 1390 de 2018.</p><p class="ok">Estado: Respondido</p>`,
+  "10806_9": `<small><strong>Acto 040-ADM2311-10806</strong></small><h3>Requerimiento 9</h3><p>Reportar el volumen aprovechado en los Informes de Cumplimiento Ambiental – ICA para la liquidación de la tasa compensatoria forestal conforme al Decreto 1390 de 2018.</p><p class="ok">Estado: Respondido</p>`,
 
-10806_10:`<h3>Req. 10</h3><p>Realizar el aprovechamiento forestal bajo principios de extracción de impacto reducido.</p><p class="ok">Estado: Respondido</p>`,
+  "10806_10": `<small><strong>Acto 040-ADM2311-10806</strong></small><h3>Requerimiento 10</h3><p>Realizar el aprovechamiento forestal bajo principios de extracción de impacto reducido.</p><p class="ok">Estado: Respondido</p>`,
 
-10806_11:`<h3>Req. 11</h3><p>Tramitar los Salvoconductos Únicos Nacionales en Línea (SUNL) a través de la plataforma VITAL de la ANLA.</p><p class="ok">Estado: Respondido</p>`,
+  "10806_11": `<small><strong>Acto 040-ADM2311-10806</strong></small><h3>Requerimiento 11</h3><p>Tramitar los Salvoconductos Únicos Nacionales en Línea (SUNL) a través de la plataforma VITAL de la ANLA.</p><p class="ok">Estado: Respondido</p>`,
 
-10806_12:`<h3>Req. 12</h3><p>No disponer residuos peligrosos ni desperdicios en el bosque durante el uso de motosierra.</p><p class="ok">Estado: Respondido</p>`,
+  "10806_12": `<small><strong>Acto 040-ADM2311-10806</strong></small><h3>Requerimiento 12</h3><p>No disponer desperdicios ni residuos peligrosos en el bosque generados por el uso de motosierra.</p><p class="ok">Estado: Respondido</p>`,
 
-10806_13:`<h3>Req. 13</h3><p>No realizar quemas de los desechos forestales; disponerlos adecuadamente o donarlos como leña.</p><p class="ok">Estado: Respondido</p>`,
+  "10806_13": `<small><strong>Acto 040-ADM2311-10806</strong></small><h3>Requerimiento 13</h3><p>No realizar quemas de desechos forestales; estos deberán disponerse en sitios especiales o donarse como leña.</p><p class="ok">Estado: Respondido</p>`,
 
-10806_14:`<h3>Req. 14</h3><p>Informar coordenadas y características técnicas de las obras implementadas y las que no se construirán.</p><p class="no">Estado: No respondido</p>`,
+  "10806_14": `<small><strong>Acto 040-ADM2311-10806</strong></small><h3>Requerimiento 14</h3><p>Informar las coordenadas y características técnicas de cada una de las obras implementadas y las que no se construirán.</p><p class="no">Estado: No respondido</p>`,
 
-10806_15:`<h3>Req. 15</h3><p>Solicitar la modificación del permiso de ocupación de cauce para las obras en gaviones ejecutadas sin autorización.</p><p class="no">Estado: No respondido</p>`,
+  "10806_15": `<small><strong>Acto 040-ADM2311-10806</strong></small><h3>Requerimiento 15</h3><p>Solicitar la modificación del permiso de ocupación de cauce para las obras en gaviones ejecutadas sin autorización.</p><p class="no">Estado: No respondido</p>`,
 
-12962_1:`<h3>Req. 1</h3><p>Dar respuesta completa a los requerimientos faltantes del Acto Administrativo 040-ADM2311-10806.</p><p class="pending">Estado: Pendiente</p>`,
+  "12962_1": `<small><strong>Acto 040-ADM2512-12962</strong></small><h3>Requerimiento 1</h3><p>Dar respuesta completa a los requerimientos faltantes del Acto Administrativo No. 040-ADM2311-10806.</p><p class="pending">Estado: Pendiente</p>`,
 
-12962_2:`<h3>Req. 2</h3><p>Presentar los ICA correspondientes al segundo semestre 2023, 2024 y primer semestre 2025 conforme al Manual MADS.</p><p class="pending">Estado: Pendiente</p>`,
+  "12962_2": `<small><strong>Acto 040-ADM2512-12962</strong></small><h3>Requerimiento 2</h3><p>Presentar los Informes de Cumplimiento Ambiental – ICA correspondientes al segundo semestre 2023, 2024 y primer semestre 2025 conforme al Manual del MADS.</p><p class="pending">Estado: Pendiente</p>`,
 
-12962_3:`<h3>Req. 3</h3><p>Adoptar medidas para el acopio temporal de residuos peligrosos conforme PMIRS.</p><p class="pending">Estado: Pendiente</p>`,
+  "12962_3": `<small><strong>Acto 040-ADM2512-12962</strong></small><h3>Requerimiento 3</h3><p>Adoptar medidas de mejora para el debido acopio temporal de los residuos peligrosos conforme al PMIRS.</p><p class="pending">Estado: Pendiente</p>`,
 
-12962_4:`<h3>Req. 4</h3><p>Presentar informe anual del PUEAA para los años 2023 y 2024.</p><p class="pending">Estado: Pendiente</p>`,
+  "12962_4": `<small><strong>Acto 040-ADM2512-12962</strong></small><h3>Requerimiento 4</h3><p>Presentar informe anual de los avances del Programa de Uso Eficiente y Ahorro del Agua – PUEAA para los años 2023 y 2024.</p><p class="pending">Estado: Pendiente</p>`,
 
-12962_5:`<h3>Req. 5</h3><p>Fortalecer el programa de recuperación y protección de los retiros hídricos de la quebrada Santa Inés.</p><p class="pending">Estado: Pendiente</p>`,
+  "12962_5": `<small><strong>Acto 040-ADM2512-12962</strong></small><h3>Requerimiento 5</h3><p>Fortalecer el programa de recuperación y protección de los retiros reglamentarios de la quebrada Santa Inés.</p><p class="pending">Estado: Pendiente</p>`,
 
-12962_6:`<h3>Req. 6</h3><p>Informar coordenadas y características técnicas de las obras de cauce ejecutadas y no ejecutadas.</p><p class="pending">Estado: Pendiente</p>`,
+  "12962_6": `<small><strong>Acto 040-ADM2512-12962</strong></small><h3>Requerimiento 6</h3><p>Informar las coordenadas y características técnicas de las obras de cauce implementadas y no implementadas.</p><p class="pending">Estado: Pendiente</p>`,
 
-12962_7:`<h3>Req. 7</h3><p>Realizar caracterización de la calidad del aire conforme Resolución 2254 de 2017.</p><p class="pending">Estado: Pendiente</p>`,
+  "12962_7": `<small><strong>Acto 040-ADM2512-12962</strong></small><h3>Requerimiento 7</h3><p>Realizar la caracterización de la calidad del aire conforme a la Resolución 2254 de 2017.</p><p class="pending">Estado: Pendiente</p>`,
 
-12962_8:`<h3>Req. 8</h3><p>Instalar unidades de captación, conducción y control de las aguas concesionadas.</p><p class="pending">Estado: Pendiente</p>`,
+  "12962_8": `<small><strong>Acto 040-ADM2512-12962</strong></small><h3>Requerimiento 8</h3><p>Instalar las unidades de captación, conducción y control de las aguas concesionadas.</p><p class="pending">Estado: Pendiente</p>`,
 
-12962_9:`<h3>Req. 9</h3><p>Solicitar modificación del permiso de ocupación de cauce para obras en gaviones.</p><p class="pending">Estado: Pendiente</p>`,
+  "12962_9": `<small><strong>Acto 040-ADM2512-12962</strong></small><h3>Requerimiento 9</h3><p>Solicitar la modificación del permiso de ocupación de cauce para las obras en gaviones ejecutadas sin autorización.</p><p class="pending">Estado: Pendiente</p>`,
 
-12962_10:`<h3>Req. 10</h3><p>Realizar la adecuación de canales perimetrales en las vías internas del proyecto.</p><p class="pending">Estado: Pendiente</p>`
+  "12962_10": `<small><strong>Acto 040-ADM2512-12962</strong></small><h3>Requerimiento 10</h3><p>Realizar la adecuación de canales perimetrales en las zonas faltantes de las vías internas del proyecto.</p><p class="pending">Estado: Pendiente</p>`
 };
 
 function ver(id){
-  document.getElementById('detalle').innerHTML = data[id];
+  const panel = document.getElementById('detalle');
+  panel.innerHTML = data[id] || '<h3>Error</h3><p>No se encontró el requerimiento.</p>';
 }
 </script>
 
