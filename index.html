@@ -18,20 +18,20 @@ header{
   padding:25px;
 }
 header h1{margin:0}
+
 .layout{
   display:flex;
   min-height:100vh;
 }
+
+/* MENÚ ACTOS */
 aside{
-  width:300px;
+  width:280px;
   background:#1f2933;
   color:#fff;
   padding:20px;
 }
-aside h2{
-  font-size:18px;
-  margin-top:0;
-}
+aside h2{font-size:18px;margin-top:0}
 .menu-item{
   background:#374151;
   padding:12px;
@@ -41,6 +41,8 @@ aside h2{
 }
 .menu-item:hover{background:#4b5563}
 .menu-item.active{background:#0b5d3b}
+
+/* CONTENIDO */
 main{
   flex:1;
   padding:25px;
@@ -48,26 +50,40 @@ main{
 .seccion{display:none}
 .seccion.active{display:block}
 
-.card{
+.panel{
+  display:flex;
+  gap:20px;
+}
+
+/* LISTA IZQUIERDA */
+.lista{
+  width:40%;
+}
+.item{
+  background:#fff;
+  padding:12px;
+  margin-bottom:10px;
+  border-left:6px solid #ccc;
+  border-radius:6px;
+  cursor:pointer;
+}
+.item:hover{background:#f0fdf4}
+.item.parcial{border-color:#f4a261}
+.item.no{border-color:#e63946}
+
+/* DETALLE DERECHA */
+.detalle{
+  width:60%;
   background:#fff;
   border-radius:8px;
-  padding:15px;
-  margin-bottom:15px;
+  padding:20px;
   box-shadow:0 2px 6px rgba(0,0,0,.1);
 }
+.detalle h3{margin-top:0}
+
 .ok{color:#2a9d8f;font-weight:bold}
 .parcial{color:#f4a261;font-weight:bold}
 .no{color:#e63946;font-weight:bold}
-
-.requerimiento{
-  border-left:6px solid #ccc;
-  padding:12px;
-  margin-bottom:12px;
-  background:#fff;
-  border-radius:6px;
-}
-.requerimiento.parcial{border-color:#f4a261}
-.requerimiento.no{border-color:#e63946}
 
 footer{
   background:#ddd;
@@ -89,102 +105,76 @@ footer{
 <aside>
   <h2>Actos Administrativos</h2>
 
-  <div class="menu-item active" onclick="mostrar('acto11629')">
-    Acto Adm. 040-ADM2212-11629
-  </div>
-
-  <div class="menu-item" onclick="mostrar('acto10806')">
+  <div class="menu-item active" onclick="mostrarActo('acto10806')">
     Acto Adm. 040-ADM2311-10806
   </div>
 
-  <div class="menu-item" onclick="mostrar('acto12962')">
+  <div class="menu-item" onclick="mostrarActo('acto12962')">
     Acto Adm. 040-ADM2512-12962
   </div>
 </aside>
 
 <main>
 
-<!-- ACTO 11629 -->
-<section id="acto11629" class="seccion active">
-  <h2>Acto Adm. 040-ADM2212-11629 (27/12/2022)</h2>
-
-  <div class="card">
-    <p><strong>Requerimientos:</strong> 70</p>
-    <p><strong>Respuesta:</strong> 10/04/2023 – COE 160ZF-COE2304-14187</p>
-  </div>
-
-  <div class="card">
-    <ul>
-      <li><span class="ok">Cumplió:</span> STARD, ICA</li>
-      <li><span class="parcial">Parcial:</span> PUEAA, emisiones, residuos, aguas residuales</li>
-      <li><span class="no">No cumplió:</span> aprovechamiento forestal, fajas de protección, RESPEL, obras hidráulicas</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ACTO 10806 -->
-<section id="acto10806" class="seccion">
-  <h2>Acto Adm. 040-ADM2311-10806 (17/11/2023)</h2>
+<!-- ================= ACTO 10806 ================= -->
+<section id="acto10806" class="seccion active">
+  <h2>Acto Adm. 040-ADM2311-10806</h2>
   <p><strong>Respuesta:</strong> Comunicación 040-COE2403-11349 – 20/03/2024</p>
 
-  <div class="requerimiento parcial">
-    <strong>1.</strong> Gestión de residuos peligrosos (2022–2023)<br>
-    <span class="parcial">Respondido parcialmente</span>
-  </div>
+  <div class="panel">
+    <div class="lista">
 
-  <div class="requerimiento parcial">
-    <strong>2.</strong> Mejoras en acopio temporal de RESPEL<br>
-    <span class="parcial">Respondido parcialmente</span>
-  </div>
+      <div class="item parcial" onclick="verDetalle('d10806_1')">
+        1. Gestión de residuos peligrosos
+      </div>
 
-  <div class="requerimiento no">
-    <strong>3.</strong> Informe PUEAA 2023<br>
-    <span class="no">Pendiente</span>
-  </div>
+      <div class="item no" onclick="verDetalle('d10806_3')">
+        3. Informe PUEAA 2023
+      </div>
 
-  <div class="requerimiento parcial">
-    <strong>4.</strong> Adecuación e instalación del STARD<br>
-    <span class="parcial">Respondido parcialmente</span>
-  </div>
+      <div class="item parcial" onclick="verDetalle('d10806_4')">
+        4. Instalación del STARD
+      </div>
 
-  <div class="requerimiento no">
-    <strong>5.</strong> Sistemas de captación y control de aguas concesionadas<br>
-    <span class="no">Pendiente</span>
-  </div>
+      <div class="item no" onclick="verDetalle('d10806_5')">
+        5. Captación de aguas concesionadas
+      </div>
 
-  <div class="requerimiento parcial">
-    <strong>6.</strong> Recuperación y protección de la quebrada Santa Inés<br>
-    <span class="parcial">Respondido parcialmente</span>
-  </div>
+    </div>
 
-  <div class="requerimiento no">
-    <strong>7.</strong> Vida útil centro de acopio de descapote<br>
-    <span class="no">Pendiente</span>
-  </div>
-
-  <div class="requerimiento parcial">
-    <strong>8–13.</strong> Obligaciones de aprovechamiento forestal<br>
-    <span class="parcial">Respondido parcialmente</span>
-  </div>
-
-  <div class="requerimiento no">
-    <strong>14.</strong> Información de obras hidráulicas<br>
-    <span class="no">Pendiente</span>
-  </div>
-
-  <div class="requerimiento no">
-    <strong>15.</strong> Modificación permiso ocupación de cauce<br>
-    <span class="no">Pendiente</span>
+    <div class="detalle" id="detalle">
+      <h3>Seleccione un requerimiento</h3>
+      <p>Haga clic en un ítem del panel izquierdo para ver el detalle completo.</p>
+    </div>
   </div>
 </section>
 
-<!-- ACTO 12962 -->
+<!-- ================= ACTO 12962 ================= -->
 <section id="acto12962" class="seccion">
-  <h2>Acto Adm. 040-ADM2512-12962 (31/12/2025)</h2>
-  <div class="card">
-    <p><strong>Requerimientos:</strong> 10</p>
-    <p><span class="no">Estado:</span> Sin respuesta a la fecha</p>
-    <p>📌 Pendiente cargar listado detallado de requerimientos.</p>
+  <h2>Acto Adm. 040-ADM2512-12962</h2>
+  <p><strong>Fecha:</strong> 31/12/2025 – <span class="no">Sin respuesta</span></p>
+
+  <div class="panel">
+    <div class="lista">
+
+      <div class="item no" onclick="verDetalle('d12962_1')">
+        1. Informes ICA (2023–2025)
+      </div>
+
+      <div class="item no" onclick="verDetalle('d12962_2')">
+        2. Acopio de residuos peligrosos
+      </div>
+
+      <div class="item no" onclick="verDetalle('d12962_6')">
+        6. Calidad del aire
+      </div>
+
+    </div>
+
+    <div class="detalle" id="detalle">
+      <h3>Seleccione un requerimiento</h3>
+      <p>Todos los requerimientos se encuentran pendientes.</p>
+    </div>
   </div>
 </section>
 
@@ -192,16 +182,86 @@ footer{
 </div>
 
 <footer>
-  Información construida con actos administrativos, comunicaciones COE y seguimiento técnico.
+  Seguimiento construido con base en actos administrativos e informes técnicos.
 </footer>
 
 <script>
-function mostrar(id){
+function mostrarActo(id){
   document.querySelectorAll('.seccion').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-
   document.querySelectorAll('.menu-item').forEach(m=>m.classList.remove('active'));
   event.target.classList.add('active');
+}
+
+const detalles = {
+  d10806_1: `
+    <h3>1. Gestión de residuos peligrosos</h3>
+    <p>
+    Aclarar mediante los soportes respectivos que certifiquen la debida gestión
+    de los residuos peligrosos, la disposición y/o manejo que se dio a la totalidad
+    de los RESPEL generados entre el año 2022 y el primer periodo del año 2023,
+    indicando las razones por las cuales no se realizó gestión dentro del término
+    máximo permitido por la normativa ambiental vigente.
+    </p>
+    <p><span class="parcial">Respondido parcialmente</span></p>
+  `,
+  d10806_3: `
+    <h3>3. Informe PUEAA 2023</h3>
+    <p>
+    Presentar el informe anual de los avances relacionados con el Programa de Uso
+    Eficiente y Ahorro del Agua – PUEAA y los anexos respectivos para el año 2023.
+    </p>
+    <p><span class="no">Pendiente</span></p>
+  `,
+  d10806_4: `
+    <h3>4. Instalación del STARD</h3>
+    <p>
+    Realizar la adecuación e instalación del STARD aprobado para el manejo de las
+    aguas residuales domésticas del proyecto, garantizando el cumplimiento de los
+    límites máximos permisibles establecidos en la Resolución 631 de 2015.
+    </p>
+    <p><span class="parcial">Respondido parcialmente</span></p>
+  `,
+  d10806_5: `
+    <h3>5. Captación de aguas concesionadas</h3>
+    <p>
+    Realizar la instalación de las unidades de captación, conducción y control
+    de las aguas concesionadas para fines domésticos e industriales derivadas
+    de la quebrada Santa Inés.
+    </p>
+    <p><span class="no">Pendiente</span></p>
+  `,
+  d12962_1: `
+    <h3>1. Informes ICA</h3>
+    <p>
+    Presentar los Informes de Cumplimiento Ambiental – ICA correspondientes
+    al segundo semestre de 2023, año 2024 y primer semestre de 2025 conforme
+    al Manual de Seguimiento Ambiental del Ministerio de Ambiente.
+    </p>
+    <p><span class="no">Pendiente</span></p>
+  `,
+  d12962_2: `
+    <h3>2. Acopio de residuos peligrosos</h3>
+    <p>
+    Adoptar medidas de mejora para garantizar condiciones óptimas de acopio
+    temporal de los residuos peligrosos generados en el proyecto, conforme
+    al PMIRS y la normativa ambiental vigente.
+    </p>
+    <p><span class="no">Pendiente</span></p>
+  `,
+  d12962_6: `
+    <h3>6. Calidad del aire</h3>
+    <p>
+    Realizar la caracterización de la calidad del aire en el área de influencia
+    directa del proyecto minero, conforme a la Resolución 2254 de 2017, incluyendo
+    PM10, PM2.5 y PST.
+    </p>
+    <p><span class="no">Pendiente</span></p>
+  `
+};
+
+function verDetalle(id){
+  document.getElementById('detalle').innerHTML = detalles[id];
 }
 </script>
 
