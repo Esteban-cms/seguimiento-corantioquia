@@ -6,23 +6,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{margin:0;font-family:Arial;background:#f4f6f8}
+body{margin:0;font-family:Arial;background:#f4f6f8;color:#333}
 header{background:#0b5d3b;color:#fff;padding:20px}
 .layout{display:flex;min-height:100vh}
-aside{width:320px;background:#1f2933;color:#fff;padding:20px}
-.menu{margin-bottom:20px}
+aside{width:360px;background:#1f2933;color:#fff;padding:20px;overflow-y:auto}
 .menu div{background:#374151;padding:10px;border-radius:6px;margin-bottom:8px;cursor:pointer}
 .menu .active{background:#0b5d3b}
-.req{background:#374151;margin-bottom:8px;padding:10px;border-radius:6px;cursor:pointer;border-left:6px solid #999}
+.req{background:#374151;padding:10px;margin-bottom:6px;border-radius:6px;cursor:pointer;border-left:6px solid #999}
 .req.ok{border-color:#2a9d8f}
 .req.no{border-color:#e63946}
 .req.pending{border-color:#f4a261}
 .req:hover{background:#4b5563}
-main{flex:1;padding:25px}
+main{flex:1;padding:30px}
 .panel{background:#fff;padding:25px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.1)}
 .ok{color:#2a9d8f;font-weight:bold}
 .no{color:#e63946;font-weight:bold}
 .pending{color:#f4a261;font-weight:bold}
+footer{text-align:center;padding:12px;background:#ddd}
 </style>
 </head>
 
@@ -41,24 +41,26 @@ main{flex:1;padding:25px}
   <div onclick="mostrar('a12962',this)">Acto 040-ADM2512-12962</div>
 </div>
 
+<!-- ACTO 10806 -->
 <div id="a10806" class="grupo">
   <div class="req ok" onclick="ver('10806_1')">1. Gestión RESPEL</div>
   <div class="req ok" onclick="ver('10806_2')">2. Acopio RESPEL</div>
-  <div class="req no" onclick="ver('10806_3')">3. PUEAA</div>
+  <div class="req no" onclick="ver('10806_3')">3. PUEAA 2023</div>
   <div class="req ok" onclick="ver('10806_4')">4. STARD</div>
-  <div class="req no" onclick="ver('10806_5')">5. Captación aguas</div>
+  <div class="req no" onclick="ver('10806_5')">5. Captación de aguas</div>
   <div class="req ok" onclick="ver('10806_6')">6. Retiros hídricos</div>
-  <div class="req no" onclick="ver('10806_7')">7. Descapote</div>
+  <div class="req no" onclick="ver('10806_7')">7. Centro de descapote</div>
   <div class="req ok" onclick="ver('10806_8')">8. Aprovechamiento forestal</div>
-  <div class="req ok" onclick="ver('10806_9')">9. Tasa forestal</div>
+  <div class="req ok" onclick="ver('10806_9')">9. Tasa compensatoria</div>
   <div class="req ok" onclick="ver('10806_10')">10. Impacto reducido</div>
-  <div class="req ok" onclick="ver('10806_11')">11. SUNL</div>
+  <div class="req ok" onclick="ver('10806_11')">11. Salvoconductos SUNL</div>
   <div class="req ok" onclick="ver('10806_12')">12. Residuos forestales</div>
   <div class="req ok" onclick="ver('10806_13')">13. Quemas</div>
   <div class="req no" onclick="ver('10806_14')">14. Obras de cruce</div>
   <div class="req no" onclick="ver('10806_15')">15. Ocupación de cauce</div>
 </div>
 
+<!-- ACTO 12962 -->
 <div id="a12962" class="grupo" style="display:none">
   <div class="req pending" onclick="ver('12962_1')">1. Responder Acto 10806</div>
   <div class="req pending" onclick="ver('12962_2')">2. ICA 2023–2025</div>
@@ -83,6 +85,10 @@ main{flex:1;padding:25px}
 
 </div>
 
+<footer>
+Seguimiento técnico-administrativo – Corantioquia
+</footer>
+
 <script>
 function mostrar(id,el){
   document.querySelectorAll('.grupo').forEach(g=>g.style.display='none');
@@ -92,20 +98,61 @@ function mostrar(id,el){
   document.getElementById('detalle').innerHTML='<h3>Seleccione un requerimiento</h3>';
 }
 
-const d={
-12962_1:`<h3>Requerimiento 1</h3><p>Dar respuesta completa a los requerimientos faltantes del Acto Administrativo No. 040-ADM2311-10806 del 17 de noviembre de 2023.</p><p class="pending">Estado: Pendiente</p>`,
-12962_2:`<h3>Requerimiento 2</h3><p>Presentar los informes de Cumplimiento Ambiental – ICA correspondientes al segundo semestre de 2023, 2024 y primer semestre 2025 conforme al Manual MADS.</p><p class="pending">Estado: Pendiente</p>`,
-12962_3:`<h3>Requerimiento 3</h3><p>Adoptar medidas de mejora para el debido acopio temporal de residuos peligrosos conforme PMIRS.</p><p class="pending">Estado: Pendiente</p>`,
-12962_4:`<h3>Requerimiento 4</h3><p>Presentar informe anual del PUEAA para los años 2023 y 2024.</p><p class="pending">Estado: Pendiente</p>`,
-12962_5:`<h3>Requerimiento 5</h3><p>Fortalecer el programa de recuperación y protección de los retiros reglamentarios de la quebrada Santa Inés mediante revegetalización y cerramiento.</p><p class="pending">Estado: Pendiente</p>`,
-12962_6:`<h3>Requerimiento 6</h3><p>Informar coordenadas y características técnicas de las obras de cauce implementadas y no ejecutadas.</p><p class="pending">Estado: Pendiente</p>`,
-12962_7:`<h3>Requerimiento 7</h3><p>Realizar caracterización de la calidad del aire conforme Resolución 2254 de 2017 (PM10, PM2.5 y PST).</p><p class="pending">Estado: Pendiente</p>`,
-12962_8:`<h3>Requerimiento 8</h3><p>Instalar unidades de captación, conducción y control de aguas concesionadas de la quebrada Santa Inés.</p><p class="pending">Estado: Pendiente</p>`,
-12962_9:`<h3>Requerimiento 9</h3><p>Solicitar modificación del permiso de ocupación de cauce para obras en gaviones ejecutadas sin autorización.</p><p class="pending">Estado: Pendiente</p>`,
-12962_10:`<h3>Requerimiento 10</h3><p>Realizar la adecuación de canales perimetrales en las zonas faltantes de las vías internas del proyecto.</p><p class="pending">Estado: Pendiente</p>`
+const data = {
+10806_1:`<h3>Req. 1</h3><p>Aclarar mediante los soportes respectivos que certifiquen la debida gestión de los residuos peligrosos, la disposición y/o manejo que se dio a la totalidad de los RESPEL generados entre el año 2022 y el primer periodo del año 2023, indicando las razones por las cuales no se realizó gestión dentro del término máximo de 12 meses conforme a la normativa ambiental vigente.</p><p class="ok">Estado: Respondido</p>`,
+
+10806_2:`<h3>Req. 2</h3><p>Adoptar medidas de mejora para el debido acopio temporal de los residuos peligrosos generados en el proyecto, garantizando las condiciones del PMIRS y la Guía Ambiental de Almacenamiento y Transporte de Sustancias Químicas Peligrosas y Residuos Peligrosos.</p><p class="ok">Estado: Respondido</p>`,
+
+10806_3:`<h3>Req. 3</h3><p>Presentar informe anual de los avances del Programa de Uso Eficiente y Ahorro del Agua – PUEAA para el año 2023.</p><p class="no">Estado: No respondido</p>`,
+
+10806_4:`<h3>Req. 4</h3><p>Realizar la adecuación e instalación del STARD aprobado para el manejo de las ARD, garantizando la descarga sobre la quebrada Santa Inés conforme a la Resolución 631 de 2015.</p><p class="ok">Estado: Respondido</p>`,
+
+10806_5:`<h3>Req. 5</h3><p>Instalar las unidades de captación, conducción y control de las aguas concesionadas para fines doméstico e industrial derivadas de la quebrada Santa Inés.</p><p class="no">Estado: No respondido</p>`,
+
+10806_6:`<h3>Req. 6</h3><p>Fortalecer el programa de recuperación y protección de los retiros reglamentarios de la quebrada Santa Inés mediante revegetalización y cerramiento.</p><p class="ok">Estado: Respondido</p>`,
+
+10806_7:`<h3>Req. 7</h3><p>Aclarar información sobre la vida útil del centro de acopio de material de descapote y las medidas de recuperación del terreno.</p><p class="no">Estado: No respondido</p>`,
+
+10806_8:`<h3>Req. 8</h3><p>Cumplir las medidas técnicas del Plan de Aprovechamiento Forestal aprobado.</p><p class="ok">Estado: Respondido</p>`,
+
+10806_9:`<h3>Req. 9</h3><p>Reportar el volumen aprovechado en los ICA para la liquidación de la tasa compensatoria forestal conforme al Decreto 1390 de 2018.</p><p class="ok">Estado: Respondido</p>`,
+
+10806_10:`<h3>Req. 10</h3><p>Realizar el aprovechamiento forestal bajo principios de extracción de impacto reducido.</p><p class="ok">Estado: Respondido</p>`,
+
+10806_11:`<h3>Req. 11</h3><p>Tramitar los Salvoconductos Únicos Nacionales en Línea (SUNL) a través de la plataforma VITAL de la ANLA.</p><p class="ok">Estado: Respondido</p>`,
+
+10806_12:`<h3>Req. 12</h3><p>No disponer residuos peligrosos ni desperdicios en el bosque durante el uso de motosierra.</p><p class="ok">Estado: Respondido</p>`,
+
+10806_13:`<h3>Req. 13</h3><p>No realizar quemas de los desechos forestales; disponerlos adecuadamente o donarlos como leña.</p><p class="ok">Estado: Respondido</p>`,
+
+10806_14:`<h3>Req. 14</h3><p>Informar coordenadas y características técnicas de las obras implementadas y las que no se construirán.</p><p class="no">Estado: No respondido</p>`,
+
+10806_15:`<h3>Req. 15</h3><p>Solicitar la modificación del permiso de ocupación de cauce para las obras en gaviones ejecutadas sin autorización.</p><p class="no">Estado: No respondido</p>`,
+
+12962_1:`<h3>Req. 1</h3><p>Dar respuesta completa a los requerimientos faltantes del Acto Administrativo 040-ADM2311-10806.</p><p class="pending">Estado: Pendiente</p>`,
+
+12962_2:`<h3>Req. 2</h3><p>Presentar los ICA correspondientes al segundo semestre 2023, 2024 y primer semestre 2025 conforme al Manual MADS.</p><p class="pending">Estado: Pendiente</p>`,
+
+12962_3:`<h3>Req. 3</h3><p>Adoptar medidas para el acopio temporal de residuos peligrosos conforme PMIRS.</p><p class="pending">Estado: Pendiente</p>`,
+
+12962_4:`<h3>Req. 4</h3><p>Presentar informe anual del PUEAA para los años 2023 y 2024.</p><p class="pending">Estado: Pendiente</p>`,
+
+12962_5:`<h3>Req. 5</h3><p>Fortalecer el programa de recuperación y protección de los retiros hídricos de la quebrada Santa Inés.</p><p class="pending">Estado: Pendiente</p>`,
+
+12962_6:`<h3>Req. 6</h3><p>Informar coordenadas y características técnicas de las obras de cauce ejecutadas y no ejecutadas.</p><p class="pending">Estado: Pendiente</p>`,
+
+12962_7:`<h3>Req. 7</h3><p>Realizar caracterización de la calidad del aire conforme Resolución 2254 de 2017.</p><p class="pending">Estado: Pendiente</p>`,
+
+12962_8:`<h3>Req. 8</h3><p>Instalar unidades de captación, conducción y control de las aguas concesionadas.</p><p class="pending">Estado: Pendiente</p>`,
+
+12962_9:`<h3>Req. 9</h3><p>Solicitar modificación del permiso de ocupación de cauce para obras en gaviones.</p><p class="pending">Estado: Pendiente</p>`,
+
+12962_10:`<h3>Req. 10</h3><p>Realizar la adecuación de canales perimetrales en las vías internas del proyecto.</p><p class="pending">Estado: Pendiente</p>`
 };
 
-function ver(id){document.getElementById('detalle').innerHTML=d[id];}
+function ver(id){
+  document.getElementById('detalle').innerHTML = data[id];
+}
 </script>
 
 </body>
